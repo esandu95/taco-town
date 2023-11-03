@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/recipe", (req, res) => {
-  //Step 3: Write your code here to make this behave like the solution website.
+
 
   if (req.body.cChoice){
     
@@ -27,7 +27,7 @@ app.post("/recipe", (req, res) => {
       proteinName:data[0].ingredients.protein.name,
       proteinPreparation:data[0].ingredients.protein.preparation,
       salsaName:data[0].ingredients.salsa.name,
-      otherToppings:data[0].ingredients.toppings[0].name,
+      oToppings:data[0].ingredients.toppings,
     });
   };
   if (req.body.bChoice){
@@ -36,7 +36,7 @@ app.post("/recipe", (req, res) => {
       proteinName:data[1].ingredients.protein.name,
       proteinPreparation:data[1].ingredients.protein.preparation,
       salsaName:data[1].ingredients.salsa.name,
-      otherToppings:data[1].ingredients.toppings[0].name,
+      oToppings:data[1].ingredients.toppings,
     });
   };
   if (req.body.fChoice){
@@ -45,11 +45,10 @@ app.post("/recipe", (req, res) => {
       proteinName:data[2].ingredients.protein.name,
       proteinPreparation:data[2].ingredients.protein.preparation,
       salsaName:data[2].ingredients.salsa.name,
-      otherToppings:data[2].ingredients.toppings[0].name,
+      oToppings:data[2].ingredients.toppings,
     });
   };
 
-  //Step 4: Add code to views/index.ejs to use the recieved recipe object.
 });
 
 app.listen(port, () => {

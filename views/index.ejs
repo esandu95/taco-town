@@ -22,7 +22,13 @@
       <ul id="ingredientsList">
         <li><%= proteinName %>, <%= proteinPreparation %></li>
         <li><%= salsaName %></li>
-        <li><%= otherToppings %></li>
+        <% for (i = 0; i < oToppings.length; i++) {
+          var toppingName= oToppings[i].name;
+          var toppingQuantity= oToppings[i].quantity;
+
+          %><li><%= toppingQuantity %> of <%= toppingName %></li><%
+          
+        } %>
       </ul>
       <% }else{ %>
     <h2>Pick your favourite taco ingredient 👆</h2>
