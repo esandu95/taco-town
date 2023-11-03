@@ -15,11 +15,39 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.render("index.ejs");
-  console.log(data[0]);
 });
 
 app.post("/recipe", (req, res) => {
   //Step 3: Write your code here to make this behave like the solution website.
+
+  if (req.body.cChoice){
+    
+    res.render("index.ejs",{
+      name:data[0].name,
+      proteinName:data[0].ingredients.protein.name,
+      proteinPreparation:data[0].ingredients.protein.preparation,
+      salsaName:data[0].ingredients.salsa.name,
+      otherToppings:data[0].ingredients.toppings[0].name,
+    });
+  };
+  if (req.body.bChoice){
+    res.render("index.ejs",{
+      name:data[1].name,
+      proteinName:data[1].ingredients.protein.name,
+      proteinPreparation:data[1].ingredients.protein.preparation,
+      salsaName:data[1].ingredients.salsa.name,
+      otherToppings:data[1].ingredients.toppings[0].name,
+    });
+  };
+  if (req.body.fChoice){
+    res.render("index.ejs",{
+      name:data[2].name,
+      proteinName:data[2].ingredients.protein.name,
+      proteinPreparation:data[2].ingredients.protein.preparation,
+      salsaName:data[2].ingredients.salsa.name,
+      otherToppings:data[2].ingredients.toppings[0].name,
+    });
+  };
 
   //Step 4: Add code to views/index.ejs to use the recieved recipe object.
 });
